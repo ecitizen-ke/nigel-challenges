@@ -16,7 +16,7 @@ class User:
         # Insert user data into the database
         user = [self.username, self.password]
         self.db.cursor.execute(
-            "INSERT INTO users (username, password) VALUES(%s, %s)", user
+            "INSERT INTO Users (username, password) VALUES(%s, %s)", user
         )
 
         # Commit
@@ -24,7 +24,7 @@ class User:
 
     def user_login(self, username, password):
         """select a record from the database table based on its username"""
-        self.db.cursor.execute("SELECT * FROM users WHERE username=%s", [username])
+        self.db.cursor.execute("SELECT * FROM Users WHERE username=%s", [username])
         # Get the record tuple
         record = self.db.cursor.fetchone()
 
